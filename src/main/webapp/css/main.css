@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #F1FAEE;
+}
+
+
+.icon {
+	color:#1D3557;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+    font-size: 3em;
+}
+
+div{
+	text-align: center;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+	text-align: center;
+    font-size: 1.5em; /* 숫자 크기를 키웁니다 */
+    height: 1em; /* 입력창의 크기를 숫자 크기에 맞춥니다 */
+    caret-color:transparent;
+    border: none;
+}
+.month, .day {
+    position: relative;
+    margin: 10px;
+    padding: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #457B9D;
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px; /* 모서리 둥글게 */
+}
+
+.month:before, .day:before {
+    content: attr(class);
+    position: absolute;
+    top: -20px;
+    color: #FF69B4; /* 살짝 다른 색으로 텍스트를 표시합니다. */
+    font-size: 0.9em; /* 글씨 크기를 조절합니다. */
+    text-transform: uppercase; /* 모든 글자를 대문자로 변환합니다. */
+}
+
+.input {
+    position: relative;
+}
+
+.title{
+	float:inherit;
+	position: relative;
+}
+
+.submit input[type="submit"] {
+    background: #E63946;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 9px #8B0000;
+}
+
+.submit input[type="submit"]:hover {
+    background: #B22222;
+    color: #F1FAEE;
+    box-shadow: 0 9px #640000;
+}
+
+.submit input[type="submit"]:active {
+    box-shadow: 0 5px #640000;
+    transform: translateY(4px);
+}
+
+.randomDate input[type="button"] {
+    background: #A8DADC;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 9px #669999; /* 그림자 색상을 조금 더 진한 색으로 설정 */
+}
+
+.randomDate input[type="button"]:hover {
+    background: #89C4C9;  /* 호버될 때 색상을 조금 더 진하게 설정 */
+    color: #F1FAEE;
+    box-shadow: 0 9px #558888; /* 호버 상태에서 그림자 색상도 조금 더 진하게 */
+}
+
+.randomDate input[type="button"]:active {
+    box-shadow: 0 5px #558888;
+    transform: translateY(4px);
+}
+
+/* 프리로딩 화면 CSS 코드 */
+.preloading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 9999; 
+}
+
+
+.preloading-start {
+    visibility: visible;  /* 로딩 시작 시 보임 */
+}
+
+.preloading-finish {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease-out, visibility 2s ease-out;  /* 천천히 사라짐 */
+}
+

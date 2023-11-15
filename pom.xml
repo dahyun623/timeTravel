@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.kim.ttp</groupId>
+  <artifactId>timetravel_project</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>timetravel_project Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+  	<org.springframework-version>5.3.20</org.springframework-version>
+  	<org.slf4j-version>2.0.3</org.slf4j-version>
+  </properties>
+  <dependencies>
+    <!-- Spring 관련 Core, MVC 개발에 필요한 라이브러리 -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${org.springframework-version}</version>
+		<exclusions>
+			<!-- 의존적 관계 중에서 exclusion을 하면 의존하지 않고 제외한다 -->
+			<exclusion>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			 </exclusion>
+		</exclusions>
+	</dependency>
+	
+	<!-- Spring MVC 개발에 stereotype인 @Controller @Service @Repository의 Annotation동작 -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-jdbc</artifactId>
+    	<version>${org.springframework-version}</version>
+	</dependency>
+    
+    <!-- Servlet은 tomcat이 가지고 있는 라이브러리, scope를 provide로 하면 실행할 때는 maven을 사용하고 배포 했을 경우 배포 서버의 라이브러리를 사용 -->
+	<!-- Spring 4.x 이상에서는 javax.servlet-api를 4.0.1로 변경해서 사용해야 한다 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>4.0.1</version>
+	</dependency>
+	
+	<!-- java standard tag library JSP에서 java를 Tag형식으로 사용할 수 있도록 함 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+    
+    <!-- 오라클 접속 드라이버 -->
+	<dependency>
+	    <groupId>com.oracle.database.jdbc</groupId>
+	    <artifactId>ojdbc10</artifactId>
+	    <version>19.17.0.0</version>
+	</dependency>
+
+	<!-- mybatis 라이브러리 -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.5.6</version>
+	</dependency>
+	
+	<!-- database connect property db접속 정보인 Property 파일을 bean으로 생성하기 위한 라이브러리 -->
+	<dependency>
+	    <groupId>commons-dbcp</groupId>
+	    <artifactId>commons-dbcp</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	
+	<!-- Spring에서 mybatis bean을 사용하기 위한 라이브러리 -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>2.0.6</version>
+	</dependency>
+    
+    <!-- JSON 생성을 위한 라이브러리 -->
+	<dependency>
+	    <groupId>com.google.code.gson</groupId>
+	    <artifactId>gson</artifactId>
+	    <version>2.8.9</version>
+	</dependency>
+	
+	<!-- Spring RestFull 서비스를 처리하기 위한 JSON 자동반환 -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.14.2</version>
+	</dependency>
+	
+	<!-- datasource 객체를 위한 HikariCP 라이브러리 Datasource 객체를 생성 -->
+	<dependency>
+	    <groupId>com.zaxxer</groupId>
+	    <artifactId>HikariCP</artifactId>
+	    <version>4.0.3</version>
+	    <exclusions>
+		    <exclusion>
+					<groupId>org.slf4j</groupId>
+				    <artifactId>slf4j-api</artifactId>
+			 </exclusion>
+	    </exclusions>
+	</dependency>	
+	
+	<!-- 로그처리를 자동으로 해주는 라이브러리 -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>${org.slf4j-version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+		<version>${org.slf4j-version}</version>
+	</dependency>
+	
+    <!-- lombok -->
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.24</version>
+	</dependency>
+
+	<!-- Test -->
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+	</dependency>
+	
+	<!-- JUnit과 Spring을 같이 동작시키기 위한 라이브러리 -->  
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+    
+    
+  </dependencies>
+  <build>
+    <finalName>timetravel_project</finalName>
+    <plugins>
+    	<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.10.1</version>
+			<configuration>
+				<source>17</source>
+				<target>17</target>
+				<encoding>UTF-8</encoding>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.3.2</version>
+			<configuration>
+				<warSourceDirectory>src/main/webapp</warSourceDirectory>
+				<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+			</configuration>
+		</plugin>
+    </plugins>
+  </build>
+</project>

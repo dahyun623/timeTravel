@@ -1,0 +1,26 @@
+@charset "UTF-8";
+body {
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+    background-color: #F1FAEE;
+}
+
+.title{
+	color:white;
+	margin:10 0;
+	padding:20 0 20 0;
+	background-color: #1D3557;
+}
+
+h1{
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+}
+
+b{
+	font-size: 16px;
+}
+
+.singleEvent{
+	background-color: #A8DADC;
+}
